@@ -6,7 +6,7 @@ A deliberately tiny todo app (Python backend, React frontend) that the [Yukta](h
 | Part | What | Tools |
 |---|---|---|
 | `backend/` | JSON API on the standard library, todos kept in memory, port 8000 | [uv](https://docs.astral.sh/uv/), ruff, pytest |
-| `frontend/` | React (Vite) page, port 5173, proxies `/api` to the backend | [bun](https://bun.sh), Biome, `bun test` |
+| `frontend/` | React (Vite) page, port 5173, proxies `/api` to the backend | [bun](https://bun.sh) or [node](https://nodejs.org), Biome, `node:test` |
 
 ## Run it
 
@@ -23,5 +23,7 @@ cd frontend && bun install && bun run dev      # then open http://127.0.0.1:5173
 cd backend  && uv run ruff check . && uv run ruff format --check . && uv run pytest -q
 cd frontend && bun install && bun run lint && bun run format:check && bun run test
 ```
+
+With node instead of bun, use `npm install` and `npm run <script>` (`npm test` for the tests).
 
 Apache-2.0.
