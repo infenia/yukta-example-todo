@@ -1,4 +1,5 @@
-import { expect, test } from "bun:test";
+import assert from "node:assert/strict";
+import { test } from "node:test";
 import { remaining, summary } from "./todos.js";
 
 const todos = [
@@ -7,10 +8,10 @@ const todos = [
 ];
 
 test("counts the todos that are not done", () => {
-  expect(remaining(todos)).toBe(1);
+  assert.equal(remaining(todos), 1);
 });
 
 test("summarises the list", () => {
-  expect(summary([])).toBe("Nothing to do");
-  expect(summary(todos)).toBe("1 of 2 left");
+  assert.equal(summary([]), "Nothing to do");
+  assert.equal(summary(todos), "1 of 2 left");
 });
